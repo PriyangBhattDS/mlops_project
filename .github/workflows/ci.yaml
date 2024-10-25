@@ -20,9 +20,10 @@ jobs:
           pip install -r requirements.txt
           pip install dvc
 
-      - name: Fetch DVC data
+      - name: Pull DVC data
         run: |
-          dvc pull  # Ensure required data files are pulled
+          # Use --no-fetch if your cache is not on a remote
+          dvc pull --no-fetch  
 
       - name: Run DVC pipeline
         run: |
